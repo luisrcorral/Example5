@@ -22,7 +22,7 @@ public class sms extends AppCompatActivity {
             public void onClick(View v) {
                 SmsManager smsManager = SmsManager.getDefault();
 
-                smsManager.sendTextMessage("4622000295", null, "This is the lab example", null, null);
+                smsManager.sendTextMessage("00000000", null, "This is the lab example", null, null);
                 Toast.makeText(getApplicationContext(), "SMS Sent", Toast.LENGTH_SHORT).show();
             }
         });

@@ -81,6 +81,28 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        Button gyrButton=(Button)findViewById(R.id.button_gyr);
+        gyrButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ;
+                Intent i = new Intent(context, gyroscope.class);
+                startActivity(i);
+            }
+        });
+
+
+        Button proButton=(Button)findViewById(R.id.button_pro);
+        proButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ;
+                Intent i = new Intent(context, proximity.class);
+                startActivity(i);
+            }
+        });
+
+
     }
 }
 

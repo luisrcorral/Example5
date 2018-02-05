@@ -48,21 +48,54 @@
         android:layout_alignParentStart="true" />
 
     <Button
+        android:id="@+id/button_tor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Torch"
-        android:id="@+id/button_tor"
-        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/button_loc"
+        android:layout_marginTop="19dp"
+        android:text="Torch" />
 
     <Button
+        android:id="@+id/button_gyr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Accelerometer"
-        android:id="@+id/button_acc"
-        android:layout_below="@+id/button_tor"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/button_acc"
+        android:layout_marginTop="33dp"
+        android:text="Gyroscope" />
+
+    <Button
+        android:id="@+id/button_acc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/button_tor"
+        android:layout_marginTop="14dp"
+        android:text="Accelerometer" />
+
+    <Button
+        android:id="@+id/button_pro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/button_gyr"
+        android:layout_marginTop="19dp"
+        android:text="Proximity" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button_phone"
+        android:layout_toEndOf="@+id/button_vib"
+        android:layout_toRightOf="@+id/button_vib"
+        android:text="Sensor Management"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large.Inverse" />
+
+
 </RelativeLayout>

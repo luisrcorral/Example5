@@ -20,7 +20,7 @@ public class call extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent phoneintent = new Intent(Intent.ACTION_CALL);
-                phoneintent.setData(Uri.parse("tel:4622000295" ));
+                phoneintent.setData(Uri.parse("tel:00000000" ));
                 startActivity(phoneintent);
             }
         });

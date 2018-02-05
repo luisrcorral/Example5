@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 
-public class accelerometer extends AppCompatActivity implements SensorEventListener {
+public class accelerometer extends AppCompatActivity  {
 
     private SensorManager sensorManager;
     double ax,ay,az;   // these are the acceleration in x,y and z axis
@@ -19,27 +19,36 @@ public class accelerometer extends AppCompatActivity implements SensorEventListe
         setContentView(R.layout.activity_accelerometer);
 
         sensorManager=(SensorManager) getSystemService(SENSOR_SERVICE);
-        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
-    }
-    @Override
-    public void onAccuracyChanged(Sensor arg0, int arg1) {
-    }
 
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-        if (event.sensor.getType()==Sensor.TYPE_ACCELEROMETER){
+        final Sensor accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
-            ax = event.values[0];
-            ay = event.values[1];
-            az = event.values[2];
+        SensorEventListener accelerometerListener = new SensorEventListener() {
 
-            TextView xValues = (TextView) findViewById(R.id.valueX);
-            TextView yValues = (TextView) findViewById(R.id.valueY);
-            TextView zValues = (TextView) findViewById(R.id.valueZ);
-
-            xValues.setText("" + ax);
-            yValues.setText("" + ay);
-            zValues.setText("" + az);
+        @Override
+        public void onAccuracyChanged(Sensor arg0, int arg1) {
         }
+
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            if (event.sensor.getType()==Sensor.TYPE_ACCELEROMETER){
+
+                ax = event.values[0];
+                ay = event.values[1];
+                az = event.values[2];
+
+                TextView xValues = (TextView) findViewById(R.id.valueX);
+                TextView yValues = (TextView) findViewById(R.id.valueY);
+                TextView zValues = (TextView) findViewById(R.id.valueZ);
+
+                xValues.setText("" + ax);
+                yValues.setText("" + ay);
+                zValues.setText("" + az);
+            }
+         }
+
+
+        };
+
+        sensorManager.registerListener(accelerometerListener, accelerometerSensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 }
