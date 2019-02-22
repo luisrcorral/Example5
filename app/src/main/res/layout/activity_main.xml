@@ -87,10 +87,16 @@
         android:layout_marginTop="19dp"
         android:text="Proximity" />
 
-    <TextView
-        android:id="@+id/textView2"
+
+    <Button
+        android:id="@+id/button_map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button_pro"
+        android:layout_centerHorizontal="true"
+        android:text="Map Activity" />
+
+    <TextView
         android:layout_alignBottom="@+id/button_phone"
         android:layout_toEndOf="@+id/button_vib"
         android:layout_toRightOf="@+id/button_vib"

@@ -103,6 +103,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        Button mapButton=(Button)findViewById(R.id.button_map);
+        proButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ;
+                Intent i = new Intent(context, MapsActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 }
 

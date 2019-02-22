@@ -1,20 +1,19 @@
 package mx.itesm.sensors;
 
-import android.hardware.Camera;
+import android.content.Context;
+import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class torch extends AppCompatActivity {
 
-    Camera camera;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_torch);
-        camera = Camera.open();
-
 
         Button onButton =(Button)findViewById(R.id.button_on);
         onButton.setOnClickListener(new View.OnClickListener() {
@@ -22,10 +21,19 @@ public class torch extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Camera.Parameters param = camera.getParameters();
-                param.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-                camera.setParameters(param);
-                camera.startPreview();
+
+                try {
+
+                    CameraManager camManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+                    String cameraId = camManager.getCameraIdList()[0];
+                    camManager.setTorchMode(cameraId, true);
+
+                }
+                catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Cannot load camera module" , Toast.LENGTH_LONG).show();
+
+                }
+
 
             }
         });
@@ -35,7 +43,16 @@ public class torch extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                camera.release();
+                try {
+                    CameraManager camManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+                    String cameraId = camManager.getCameraIdList()[0];
+                    camManager.setTorchMode(cameraId, false);
+
+                }
+                catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Cannot load camera module" , Toast.LENGTH_LONG).show();
+
+                }
 
             }
         });
